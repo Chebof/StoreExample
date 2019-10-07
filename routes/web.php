@@ -21,11 +21,21 @@ use Illuminate\Support\Facades\Route;
 Route::resource('tasks', 'TasksController');
 
 Route::get('/', function () {
-    return view('store.startpage');
+    return view('startpage');
 });
 
-Route::get('/goods', 'GoodsController@index')->name('goodsIndex');
-Route::get('/services', 'ServicesController@index')->name('servicesIndex');
+Route::get('goods', 'GoodsController@index')->name('goods.index');
+Route::get('goods/{id}/show', 'GoodsController@show')->name('goods.show');
+
+// Route::get('goods/{id}/edit', 'GoodsController@edit')->name('goods.edit');
+// Route::put('goods/{id}/update', 'GoodsController@update')->name('goods.update');
+
+// Route::get('goods/create', 'GoodsController@create')->name('goods.create');
+// Route::post('goods/store', 'GoodsController@store')->name('goods.store');
+
+
+
+Route::get('services', 'ServicesController@index')->name('services.index');
 
 
 
@@ -35,4 +45,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('/users', 'UsersController', ['except' => ['create', 'show', 'store']]);
+});
+
+Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('/goods', 'GoodsController', ['except' => ['index', 'show']]);
 });

@@ -9,6 +9,6 @@ class ServicesController extends Controller
     public function index()
     {
         $services = Service::all();
-        return view('store.services', ['services' => $services]);
+        return view('servises.index', ['services' => $services]);
     }
 }

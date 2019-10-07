@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <style>
         .bd-placeholder-img {
           font-size: 1.125rem;
@@ -55,8 +56,8 @@
                                 Goods and servises
                             </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="{{route('goodsIndex')}}">Goods</a>
-                                  <a class="dropdown-item" href="{{route('servicesIndex')}}">Services</a>
+                                  <a class="dropdown-item" href="{{route('goods.index')}}">Goods</a>
+                                  <a class="dropdown-item" href="{{route('services.index')}}">Services</a>
                                 </div>
                         </li>
 
@@ -78,6 +79,9 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item ">
+                                <a class="nav-link" href="">Shopping Cart</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -90,7 +94,7 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                   @if (auth()->user()->hasRole('adminpla'))
+                                   @if (auth()->user()->hasRole('admin'))
                                         <a class="dropdown-item" href="{{ route('admin.users.index') }}">
                                             Users management
                                         </a>

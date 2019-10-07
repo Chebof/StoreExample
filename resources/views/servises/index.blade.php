@@ -24,6 +24,12 @@
                             <button class="btn btn-sm btn-success" type="submit">
                                 Add to shoping cart
                             </button>
+                            <button class="btn btn-sm btn-secondary" type="button" >
+                                Edit
+                            </button>
+                            <button class="btn btn-sm btn-primary" type="submit">
+                                Delete
+                            </button>
                         </div>
                    </div>
                 </div>
